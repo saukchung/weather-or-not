@@ -8,7 +8,7 @@ var searchButton = document.getElementById('searchButton');
 var APIKey = '347ef9e5a11b48794065658c22cadcce';
 var createName = document.querySelector("h2");
 var tempWindHumUV = document.querySelectorAll("h4");
-
+var forecastContainer = document.querySelector("#forecast");
 
 // STATES
 
@@ -49,19 +49,28 @@ function renderCityData() {
                     else {
                         tempWindHumUV[3].style.backgroundColor = "grey";
                     }
-                    console.log(data2);
-
-
+                
+                    addForecast(data2);
                 })
-
-            
-            
-
-
-
-
-        
         });
+}
+
+function addForecast(data) {
+    for (i=1;i<6;i++) {
+        var forecastDate = document.createElement("h5");
+        forecastDate.textContent = moment().add(i,'days').format("l")
+        var forecastIcon = document.createElement("img");
+        var forecastTemp = document.createElement("h5");
+        var forecastWind = document.createElement("h5");
+        var forecastHum = document.createElement("h5");
+        var forecastCard = document.createElement("div");
+    
+        forecastCard.append(forecastDate);
+        forecastContainer.append(forecastCard);
+
+
+    }
+    
 }
 
 
