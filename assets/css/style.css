@@ -1,0 +1,12 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgb(3, 143, 251) , rgb(0, 0, 114));
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    line-height: 70px;
+};
+
+section {
+    border: solid blue 5px;
+}
