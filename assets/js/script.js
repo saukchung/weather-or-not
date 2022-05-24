@@ -56,17 +56,21 @@ function renderCityData() {
 }
 
 function addForecast(data) {
+    console.log(data);
     for (i=1;i<6;i++) {
         var forecastDate = document.createElement("h5");
         forecastDate.textContent = moment().add(i,'days').format("l")
         var forecastIcon = document.createElement("img");
+        forecastIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + "@2x.png");
         var forecastTemp = document.createElement("h5");
         var forecastWind = document.createElement("h5");
         var forecastHum = document.createElement("h5");
         var forecastCard = document.createElement("div");
     
-        forecastCard.append(forecastDate);
+        forecastCard.setAttribute("class","col-2");
+        forecastCard.append(forecastDate, forecastIcon);
         forecastContainer.append(forecastCard);
+        
 
 
     }
