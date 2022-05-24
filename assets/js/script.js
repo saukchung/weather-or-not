@@ -23,20 +23,35 @@ function renderCityData() {
             return response.json();
         })
         .then(function(data) {
-            createName.textContent += " " + data.name + " (" + moment().format('L') + ")";
+            createName.textContent += " " + data.name + " (" + moment().format('l') + ")";
             tempWindHumUV[0].textContent += " " + data.main.temp + " K";
             tempWindHumUV[1].textContent += " " + data.wind.speed + " MPH";
             tempWindHumUV[2].textContent += " " + data.main.humidity + " %";
             var lat = data.coord.lat;
             var lon = data.coord.lon;
 
-            var queryURLuvi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+            var queryURLuvi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&appid=" + APIKey;
             fetch(queryURLuvi)
                 .then(function(response) {
                     return response.json();
                 })
                 .then(function(data2){
                     tempWindHumUV[3].textContent += " " + data2.current.uvi;
+                    if (data2.current.uvi < 2.5) {
+                        tempWindHumUV[3].style.backgroundColor = "green";
+                    }
+                    else if (data2.current.uvi < 5 && data2.current.uvi >= 2.5) {
+                        tempWindHumUV[3].style.backgroundColor = "yellow";
+                    }
+                    else if (data2.current.uvi < 8 && data2.current.uvi >= 5) {
+                        tempWindHumUV[3].style.backgroundColor = "red";
+                    }
+                    else {
+                        tempWindHumUV[3].style.backgroundColor = "grey";
+                    }
+                    console.log(data2);
+
+
                 })
 
             
