@@ -4,11 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>hello world!</h1>
+    <!-- Header -->
+    <h1>Weather Dashboard</h1>
+
+    <!-- main as container -->
+    <main class="container-fluid row">
+      <div class="col-3">
+        <input id="searchInput" type="text" placeholder="Enter name of city" />
+        <button id="searchButton">Search</button>
+        <p>recent searches:</p>
+        <!-- searched cities are appened here(main) as buttons -->
+      </div>
+
+      <div class="col-9">
+        <section class="todayResult">
+          <div>
+            <!-- place city here-->
+            <h2>City:</h2>
+          </div>
+          <div>
+            <!-- place temp here-->
+            <h4>Temp:</h4>
+          </div>
+          <div>
+            <!-- place wind here-->
+            <h4>Wind:</h4>
+          </div>
+          <div>
+            <!-- place hum here-->
+            <h4>Humidity:</h4>
+          </div>
+          <div>
+            <!-- place uv here-->
+            <h4>UV Index:</h4>
+          </div>
+        </section>
+
+        <br />
+
+        <div>
+          <h4>5-Day Forecast</h4>
+          <div class="row"></div>
+        </div>
+      </div>
+    </main>
   </body>
   <script src="./assets/js/script.js"></script>
 </html>
